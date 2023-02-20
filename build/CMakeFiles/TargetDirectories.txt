@@ -1,0 +1,3 @@
+/workspaces/trestle/build/CMakeFiles/rebuild_cache.dir
+/workspaces/trestle/build/CMakeFiles/edit_cache.dir
+/workspaces/trestle/build/CMakeFiles/trestle.dir

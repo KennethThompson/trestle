@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/workspaces/trestle/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../include -I/sol2/include -I/usr/include/lua5.4 -g -std=gnu++17 -o CMakeFiles/trestle.dir/src/main.cpp.o -c /workspaces/trestle/src/main.cpp",
+  "file": "/workspaces/trestle/src/main.cpp"
+}
+]

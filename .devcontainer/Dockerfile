@@ -6,3 +6,20 @@ FROM mcr.microsoft.com/devcontainers/cpp:0-${VARIANT}
 # [Optional] Uncomment this section to install additional packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
+RUN apt-get update && apt-get upgrade -y \
+    && DEBIAN_FRONTEND=noninteractive \
+    && apt-get install --no-install-recommends --assume-yes \
+      docker.io \
+    && apt-get install -y -q build-essential \
+    && apt-get install -y libboost-all-dev \
+    && apt-get install -y lua5.4 \
+    && apt-get install -y nlohmann-json3-dev \
+    && apt-get install -y liblua5.4-dev \
+    && apt-get install -y cmake \
+    && apt-get -y update \
+    && apt-get -y install
+RUN git clone https://github.com/ThePhD/sol2.git
+
+#RUN apt-get -y update
+#RUN apt-get -y install git
+  #  && apt-get install -y glibc

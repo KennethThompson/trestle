@@ -9,6 +9,17 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "type": "cmake",
+            "label": "cmake",
+            "command": "build",
+            "targets": [
+                "trestle"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Build task to build trestle"
         }
     ]
 }
