@@ -1,0 +1,4 @@
+# ninja log v5
+0	2	0	clean	a31eedcededa8236
+2	5939	1664413416738929325	CMakeFiles/trestle.dir/src/main.cpp.o	44e8a78be099a42c
+5939	6110	1664413416914927784	trestle	bfca7879e552c85b
