@@ -1,5 +1,5 @@
-#if !defined(BASE_OBJECT)
-#define BASE_OBJECT
+#if !defined(GAME_OBJECT)
+#define GAME_OBJECT
 #include <stdafx.hpp>
 
  class GameObject
@@ -7,6 +7,9 @@
  private:
     /* data */
     std::unordered_map<std::string, sol::object> _internalProperties;
+	std::string _baseScriptPath;
+	std::string _virtualScriptPath;
+	
  public:
     GameObject(/* args */);
     ~GameObject();
@@ -40,4 +43,4 @@
  
 
 
-#endif // BASE_OBJECT
+#endif // GAME_OBJECT

@@ -149,7 +149,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Project
+CMAKE_PROJECT_NAME:STATIC=trestle
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -221,12 +221,6 @@ LUA_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/liblua5.4.so
 
 //Path to a library.
 LUA_MATH_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libm.so
-
-//Value Computed by CMake
-Project_BINARY_DIR:STATIC=/workspaces/trestle/build
-
-//Value Computed by CMake
-Project_SOURCE_DIR:STATIC=/workspaces/trestle
 
 //The directory containing a CMake configuration file for boost_container.
 boost_container_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_container-1.74.0

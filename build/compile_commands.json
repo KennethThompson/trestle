@@ -1,7 +1,17 @@
 [
 {
   "directory": "/workspaces/trestle/build",
-  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../include -I/sol2/include -I/usr/include/lua5.4 -g -std=gnu++17 -o CMakeFiles/trestle.dir/src/main.cpp.o -c /workspaces/trestle/src/main.cpp",
-  "file": "/workspaces/trestle/src/main.cpp"
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../trestle -I/sol2/include -I/usr/include/lua5.4 -g -std=gnu++17 -Winvalid-pch -x c++-header -include /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx -o CMakeFiles/trestle.dir/cmake_pch.hxx.gch -c /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx.cxx",
+  "file": "/workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx.cxx"
+},
+{
+  "directory": "/workspaces/trestle/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../trestle -I/sol2/include -I/usr/include/lua5.4 -g -std=gnu++17 -Winvalid-pch -include /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx -o CMakeFiles/trestle.dir/trestle/main.cpp.o -c /workspaces/trestle/trestle/main.cpp",
+  "file": "/workspaces/trestle/trestle/main.cpp"
+},
+{
+  "directory": "/workspaces/trestle/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../trestle -I/sol2/include -I/usr/include/lua5.4 -g -std=gnu++17 -Winvalid-pch -include /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx -o CMakeFiles/trestle.dir/trestle/GameObject.cpp.o -c /workspaces/trestle/trestle/GameObject.cpp",
+  "file": "/workspaces/trestle/trestle/GameObject.cpp"
 }
 ]

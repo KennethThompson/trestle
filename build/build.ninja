@@ -66,13 +66,29 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 
 build cmake_object_order_depends_target_trestle: phony || CMakeFiles/trestle.dir
 
-build CMakeFiles/trestle.dir/src/main.cpp.o: CXX_COMPILER__trestle_Debug ../src/main.cpp || cmake_object_order_depends_target_trestle
+build CMakeFiles/trestle.dir/cmake_pch.hxx.gch: CXX_COMPILER__trestle_Debug CMakeFiles/trestle.dir/cmake_pch.hxx.cxx | CMakeFiles/trestle.dir/cmake_pch.hxx || cmake_object_order_depends_target_trestle
   DEFINES = -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1
-  DEP_FILE = CMakeFiles/trestle.dir/src/main.cpp.o.d
-  FLAGS = -g -std=gnu++17
-  INCLUDES = -I../include -I/sol2/include -I/usr/include/lua5.4
+  DEP_FILE = CMakeFiles/trestle.dir/cmake_pch.hxx.gch.d
+  FLAGS = -g -std=gnu++17 -Winvalid-pch -x c++-header -include /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx
+  INCLUDES = -I../trestle -I/sol2/include -I/usr/include/lua5.4
   OBJECT_DIR = CMakeFiles/trestle.dir
-  OBJECT_FILE_DIR = CMakeFiles/trestle.dir/src
+  OBJECT_FILE_DIR = CMakeFiles/trestle.dir
+
+build CMakeFiles/trestle.dir/trestle/main.cpp.o: CXX_COMPILER__trestle_Debug ../trestle/main.cpp | CMakeFiles/trestle.dir/cmake_pch.hxx CMakeFiles/trestle.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_trestle
+  DEFINES = -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1
+  DEP_FILE = CMakeFiles/trestle.dir/trestle/main.cpp.o.d
+  FLAGS = -g -std=gnu++17 -Winvalid-pch -include /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx
+  INCLUDES = -I../trestle -I/sol2/include -I/usr/include/lua5.4
+  OBJECT_DIR = CMakeFiles/trestle.dir
+  OBJECT_FILE_DIR = CMakeFiles/trestle.dir/trestle
+
+build CMakeFiles/trestle.dir/trestle/GameObject.cpp.o: CXX_COMPILER__trestle_Debug ../trestle/GameObject.cpp | CMakeFiles/trestle.dir/cmake_pch.hxx CMakeFiles/trestle.dir/cmake_pch.hxx.gch || cmake_object_order_depends_target_trestle
+  DEFINES = -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1
+  DEP_FILE = CMakeFiles/trestle.dir/trestle/GameObject.cpp.o.d
+  FLAGS = -g -std=gnu++17 -Winvalid-pch -include /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx
+  INCLUDES = -I../trestle -I/sol2/include -I/usr/include/lua5.4
+  OBJECT_DIR = CMakeFiles/trestle.dir
+  OBJECT_FILE_DIR = CMakeFiles/trestle.dir/trestle
 
 
 # =============================================================================
@@ -82,10 +98,10 @@ build CMakeFiles/trestle.dir/src/main.cpp.o: CXX_COMPILER__trestle_Debug ../src/
 #############################################
 # Link the executable trestle
 
-build trestle: CXX_EXECUTABLE_LINKER__trestle_Debug CMakeFiles/trestle.dir/src/main.cpp.o | /usr/lib/x86_64-linux-gnu/liblua5.4.so /usr/lib/x86_64-linux-gnu/libm.so
+build trestle: CXX_EXECUTABLE_LINKER__trestle_Debug CMakeFiles/trestle.dir/trestle/main.cpp.o CMakeFiles/trestle.dir/trestle/GameObject.cpp.o | /usr/lib/x86_64-linux-gnu/liblua5.4.so /usr/lib/x86_64-linux-gnu/libm.so
   FLAGS = -g
   LINK_FLAGS = -rdynamic
-  LINK_LIBRARIES = -llua5.4  -lm
+  LINK_LIBRARIES = -llua5.4  -lm  -luv
   OBJECT_DIR = CMakeFiles/trestle.dir
   POST_BUILD = :
   PRE_LINK = :
