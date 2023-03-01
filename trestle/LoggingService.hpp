@@ -1,5 +1,5 @@
 // ==========================================================================
-// GameObject.hpp
+// LoggingService.hpp
 //
 // Copyright (C) 2023 Kenneth Thompson, All Rights Reserved.
 // This file is covered by the MIT Licence:
@@ -22,51 +22,54 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 // DEALINGS IN THE SOFTWARE.
 // ==========================================================================
-#if !defined(GAME_OBJECT)
-#define GAME_OBJECT
-#include <stdafx.hpp>
+#ifndef _LOG_INTERFACE_HPP_
+#define _LOG_INTERFACE_HPP_
 
-enum class EntityType { UNKNOWN=0, ROOM, ITEM, NPC, PLAYER, COMMAND, DAEMON, LIB, HAND };
-struct _sol_userdata_
+enum class LOGLEVEL : int { LOGLEVEL_INFO, LOGLEVEL_ERROR, LOGLEVEL_CRITICAL, LOGLEVEL_DEBUG };
+
+class LoggingService
 {
-    ~_sol_userdata_()
+    
+public:
+    static LoggingService & Instance()
     {
-       // LOG_DEBUG << "sol_userdata destroyed.." << std::endl;
+        // Since it's a static variable, if the class has already been created,
+        // It won't be created again.
+        // And it **is** thread-safe in C++11.
+
+        static LoggingService myInstance;
+
+        // Return a reference to our instance.
+        return myInstance;
     }
-    sol::userdata selfobj;
-};
 
-
-struct GameObject
-{
- private:
-    /* data */
-    std::unordered_map<std::string, sol::object> _internalProperties;
-	std::string _baseScriptPath;
-	std::string _virtualScriptPath;
-	std::shared_ptr<GameObject> _owner; // Object that owns this one
-	EntityType _entityType;
-	unsigned int _instanceID; // used to discriminate between multiple objects created by a single script
-	std::shared_ptr< _sol_userdata_ > _solObject; // used to keep track of the lua stack object
+    // delete copy and move constructors and assign operators
+    LoggingService(LoggingService const&) = delete;             // Copy construct
+    LoggingService(LoggingService&&) = delete;                  // Move construct
+    LoggingService& operator=(LoggingService const&) = delete;  // Copy assign
+    LoggingService& operator=(LoggingService &&) = delete;      // Move assign
 	
- public:
-	GameObject(const GameObject&) = delete;
-	void operator=(const GameObject&) = delete;
-    ~GameObject();
 
-   GameObject(sol::this_state ts, sol::this_environment te, EntityType& et);
+	void log_error(std::string msg);
+	void log(LOGLEVEL log_level, std::string msg);
+	void log(LOGLEVEL log_level, std::string script_path, std::string msg);
+	
+    
+protected:
+    LoggingService()
+    {
+      
+    }
 
-   /// @brief Returns owning entity
-   /// @return shared_ptr to owning entity
-   std::shared_ptr<GameObject> GetOwner() { return _owner; }
-
-	/*
-		Lua Accessors to allow for arbitrary property definitions
-	*/
-	sol::object get_property_lua(const char* name, sol::this_state s);
-	void set_property_lua(const char* name, sol::stack_object object);
+    ~LoggingService()
+    {
+         // Destructor code goes here.
+    }    
+	
+private:
+   
+    
 };
- 
 
 
-#endif // GAME_OBJECT
+#endif

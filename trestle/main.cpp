@@ -8,23 +8,6 @@ using namespace std::placeholders;
 
 
 
-struct stone : public GameObject
-{
-	stone(sol::this_state ts, sol::this_environment te) : GameObject(ts, te)
-	{
-
-	}
-	stone()
-	{
-
-	}
-	~stone()
-	{
-		std::cout << "time to melt" << std::endl;
-	}
-
-};
-
 struct luaSubsystem
 {
 	luaSubsystem()
@@ -44,7 +27,7 @@ struct luaSubsystem
 
 int main() {
 	std::cout << "=== usertype_initializers ===" << std::endl;
-	
+	/*
 	{ // additional scope to make usertype destroy earlier
 	
 
@@ -91,5 +74,6 @@ int main() {
 		//sol_c_assert(h1.data == 50);
 		//sol_c_assert(h2.data == 0);
 	}
+	*/
 	std::cout << std::endl;
 }

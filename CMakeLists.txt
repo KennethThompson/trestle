@@ -24,7 +24,7 @@ nlohmann_json::nlohmann_json
 )
 
 # The required C++ Standard for Server++ is C++14.
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Add an executable with the above sources
@@ -39,10 +39,12 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set (TRESTLE_PUBLIC_SOURCE_FILES
     trestle/main.cpp
     trestle/GameObject.cpp
+    trestle/LoggingService.cpp
 )
 
 set (TRESTLE_PUBLIC_HEADER_FILES
     trestle/GameObject.hpp
+    trestle/LoggingService.hpp
 )
 
 
