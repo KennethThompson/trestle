@@ -18,7 +18,10 @@ RUN apt-get update && apt-get upgrade -y \
     && apt-get install -y libspdlog-dev \
     && apt-get install -y cmake \
     && apt-get -y update \
-    && apt-get -y install
+    && apt-get -y install \
+    && git config --global user.email "kenthompson1@gmail.com" \
+    && git config --global user.name "Ken Thompson"
+    
 RUN LIBUV_VERSION=1.44.2 \
 	&& apt-get update \
 	&& apt-get -y install vim-tiny nano curl wget autoconf automake build-essential libtool \
