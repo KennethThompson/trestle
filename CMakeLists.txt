@@ -17,6 +17,7 @@ find_package(Boost COMPONENTS container REQUIRED)
 #find_package(Threads REQUIRED)
 find_package(Lua REQUIRED)
 find_package(nlohmann_json REQUIRED)
+find_package(spdlog REQUIRED)
 
 set(TRESTLE_PRIVATE_LIBRARIES
 Boost::boost
@@ -45,6 +46,7 @@ set (TRESTLE_PUBLIC_SOURCE_FILES
 set (TRESTLE_PUBLIC_HEADER_FILES
     trestle/GameObject.hpp
     trestle/LoggingService.hpp
+    trestle/ScriptFuncs.hpp
 )
 
 

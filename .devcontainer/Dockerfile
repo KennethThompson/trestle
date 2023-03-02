@@ -15,6 +15,7 @@ RUN apt-get update && apt-get upgrade -y \
     && apt-get install -y lua5.4 \
     && apt-get install -y nlohmann-json3-dev \
     && apt-get install -y liblua5.4-dev \
+    && apt-get install -y libspdlog-dev \
     && apt-get install -y cmake \
     && apt-get -y update \
     && apt-get -y install

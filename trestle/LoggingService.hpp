@@ -25,51 +25,55 @@
 #ifndef _LOG_INTERFACE_HPP_
 #define _LOG_INTERFACE_HPP_
 
-enum class LOGLEVEL : int { LOGLEVEL_INFO, LOGLEVEL_ERROR, LOGLEVEL_CRITICAL, LOGLEVEL_DEBUG };
-
-class LoggingService
+namespace trestle
 {
-    
-public:
-    static LoggingService & Instance()
+    enum class LOGLEVEL : int { LOGLEVEL_INFO, LOGLEVEL_ERROR, LOGLEVEL_CRITICAL, LOGLEVEL_DEBUG };
+    struct LoggingService
     {
-        // Since it's a static variable, if the class has already been created,
-        // It won't be created again.
-        // And it **is** thread-safe in C++11.
+        
+    public:
+        static LoggingService & Instance()
+        {
+            // Since it's a static variable, if the class has already been created,
+            // It won't be created again.
+            // And it **is** thread-safe in C++11.
 
-        static LoggingService myInstance;
+            static LoggingService myInstance;
 
-        // Return a reference to our instance.
-        return myInstance;
-    }
+            // Return a reference to our instance.
+            return myInstance;
+        }
 
-    // delete copy and move constructors and assign operators
-    LoggingService(LoggingService const&) = delete;             // Copy construct
-    LoggingService(LoggingService&&) = delete;                  // Move construct
-    LoggingService& operator=(LoggingService const&) = delete;  // Copy assign
-    LoggingService& operator=(LoggingService &&) = delete;      // Move assign
-	
+        // delete copy and move constructors and assign operators
+        LoggingService(LoggingService const&) = delete;             // Copy construct
+        LoggingService(LoggingService&&) = delete;                  // Move construct
+        LoggingService& operator=(LoggingService const&) = delete;  // Copy assign
+        LoggingService& operator=(LoggingService &&) = delete;      // Move assign
+        
 
-	void log_error(std::string msg);
-	void log(LOGLEVEL log_level, std::string msg);
-	void log(LOGLEVEL log_level, std::string script_path, std::string msg);
-	
+        void log_error(std::string msg);
+        void log(LOGLEVEL log_level, std::string msg);
+        void log(LOGLEVEL log_level, std::string script_path, std::string msg);
+        
+        
+    protected:
+        LoggingService()
+        {
+        
+        }
+
+        ~LoggingService()
+        {
+            // Destructor code goes here.
+        }    
+        
+    private:
     
-protected:
-    LoggingService()
-    {
-      
-    }
-
-    ~LoggingService()
-    {
-         // Destructor code goes here.
-    }    
-	
-private:
-   
-    
-};
+        
+    };
 
 
-#endif
+    #endif
+
+}
+
