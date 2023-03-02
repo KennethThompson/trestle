@@ -18,9 +18,7 @@ RUN apt-get update && apt-get upgrade -y \
     && apt-get install -y libspdlog-dev \
     && apt-get install -y cmake \
     && apt-get -y update \
-    && apt-get -y install \
-    && git config --global user.email "kenthompson1@gmail.com" \
-    && git config --global user.name "Ken Thompson"
+    && apt-get -y install
     
 RUN LIBUV_VERSION=1.44.2 \
 	&& apt-get update \
@@ -36,3 +34,6 @@ RUN LIBUV_VERSION=1.44.2 \
 	#&& rm -rf /var/lib/apt/lists/*
   
 RUN git clone https://github.com/ThePhD/sol2.git
+
+RUN git config --global user.email "kenthompson1@gmail.com" \
+    && git config --global user.name "Ken Thompson"
