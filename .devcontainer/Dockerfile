@@ -35,6 +35,3 @@ RUN LIBUV_VERSION=1.44.2 \
   
 RUN git clone https://github.com/ThePhD/sol2.git
 
-#RUN git config --global user.email "kenthompson1@gmail.com" \
-#    && git config --global user.name "Ken Thompson"
-#COPY .gitconfig .
