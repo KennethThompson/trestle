@@ -3,7 +3,7 @@
     "tasks": [
         {
             "type": "cmake",
-            "label": "cmake",
+            "label": "CMake:build",
             "command": "build",
             "targets": [
                 "trestle"

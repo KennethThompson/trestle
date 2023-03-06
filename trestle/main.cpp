@@ -26,7 +26,7 @@ struct luaSubsystem
 };
 
 int main() {
-	std::cout << "=== usertype_initializers ===" << std::endl;
+std::cout << "=== usertype_initializers ===" << std::endl;
 	/*
 	{ // additional scope to make usertype destroy earlier
 	
