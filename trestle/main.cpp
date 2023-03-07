@@ -1,8 +1,7 @@
 #include <stdafx.hpp>
 #include <GameObject.hpp>
+#include <ScriptFuncs.hpp>
 using namespace std::placeholders;
-
-
 #include <memory>
 #include <iostream>
 

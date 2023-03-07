@@ -1,5 +1,5 @@
 // ==========================================================================
-// GameObject.hpp
+// EntityDefs.hpp
 //
 // Copyright (C) 2023 Kenneth Thompson, All Rights Reserved.
 // This file is covered by the MIT Licence:
@@ -22,44 +22,18 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 // DEALINGS IN THE SOFTWARE.
 // ==========================================================================
-#if !defined(GAME_OBJECT)
-#define GAME_OBJECT
-#include <stdafx.hpp>
-
+#if !defined(ENTITY_DEFS)
+#define ENTITY_DEFS
 namespace trestle
 {
-	struct GameObject
+	enum class EntityType { UNKNOWN=0, ROOM, ITEM, NPC, PLAYER, COMMAND, DAEMON, LIB, HAND };
+	struct _sol_userdata_
 	{
-	private:
-		/* data */
-		std::unordered_map<std::string, sol::object> _internalProperties;
-		std::string _baseScriptPath;
-		std::string _virtualScriptPath;
-		std::shared_ptr<GameObject> _owner; // Object that owns this one
-		EntityType _entityType;
-		unsigned int _instanceID; // used to discriminate between multiple objects created by a single script
-		std::shared_ptr< _sol_userdata_ > _solObject; // used to keep track of the lua stack object
-		
-	public:
-		GameObject(const GameObject&) = delete;
-		void operator=(const GameObject&) = delete;
-		~GameObject();
-
-	GameObject(sol::this_state ts, sol::this_environment te, EntityType& et);
-
-	/// @brief Returns owning entity
-	/// @return shared_ptr to owning entity
-	std::shared_ptr<GameObject> GetOwner() { return _owner; }
-
-		/*
-			Lua Accessors to allow for arbitrary property definitions
-		*/
-		sol::object get_property_lua(const char* name, sol::this_state s);
-		void set_property_lua(const char* name, sol::stack_object object);
-		EntityType& GetEntityType() { return _entityType; };
-		std::string GetEntityTypeString();
+		~_sol_userdata_()
+		{
+		// LOG_DEBUG << "sol_userdata destroyed.." << std::endl;
+		}
+		sol::userdata selfobj;
 	};
-	
-
 }
-#endif // GAME_OBJECT
+#endif

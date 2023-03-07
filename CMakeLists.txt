@@ -47,6 +47,8 @@ set (TRESTLE_PUBLIC_HEADER_FILES
     trestle/GameObject.hpp
     trestle/LoggingService.hpp
     trestle/ScriptFuncs.hpp
+    trestle/EntityDefs.hpp
+    trestle/StringFuncs.hpp
 )
 
 

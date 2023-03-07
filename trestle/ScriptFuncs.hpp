@@ -22,9 +22,13 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 // DEALINGS IN THE SOFTWARE.
 // ==========================================================================
+#if !defined(STRING_FUNCS)
+#define STRING_FUNCS
+#include <stdafx.hpp>
+
 namespace Trestle {
     struct ScriptFuncs {
-        static bool entity_manager::ParseScriptText(
+        static bool ParseScriptText(
             std::stringstream& buffer,
             std::string& script_path,
             std::string& script_text,
@@ -176,5 +180,29 @@ namespace Trestle {
             buffer << in.rdbuf();
             return ParseScriptText(buffer, script_path, script_text, obj_type, reason);
         }
+
+        bool GetEntityPathFromIDString(const std::string& entity_id, std::string& entity_script_path, unsigned int& instanceid)
+        {
+            unsigned int tmp = 0;
+            entity_script_path = boost::to_lower_copy(entity_id);
+            std::size_t found = entity_script_path.find("id=");
+
+            if(found != std::string::npos) {
+                // the id has a id= in it..
+
+                sscanf(entity_script_path.c_str(), "%*[^=]=%u", &tmp);
+                entity_script_path.erase(entity_script_path.begin() + found,
+                                        entity_script_path.end()); // remove it from the string
+            }
+            if(entity_script_path[entity_script_path.size() - 1] == '/' ||
+            entity_script_path[entity_script_path.size() - 1] == ':') // no need to have this.
+            {
+                entity_script_path.erase(entity_script_path.size() - 1);
+            }
+
+            return true;
+        }
+
     }; //struct ScriptFuncs
 } //namespace Trestle
+#endif

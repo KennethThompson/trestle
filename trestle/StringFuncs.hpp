@@ -1,5 +1,5 @@
 // ==========================================================================
-// GameObject.hpp
+// StringFuncs.hpp
 //
 // Copyright (C) 2023 Kenneth Thompson, All Rights Reserved.
 // This file is covered by the MIT Licence:
@@ -22,44 +22,43 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 // DEALINGS IN THE SOFTWARE.
 // ==========================================================================
-#if !defined(GAME_OBJECT)
-#define GAME_OBJECT
-#include <stdafx.hpp>
+#if !defined(STRING_FUNCS)
+#define STRING_FUNCS
 
-namespace trestle
-{
-	struct GameObject
-	{
-	private:
-		/* data */
-		std::unordered_map<std::string, sol::object> _internalProperties;
-		std::string _baseScriptPath;
-		std::string _virtualScriptPath;
-		std::shared_ptr<GameObject> _owner; // Object that owns this one
-		EntityType _entityType;
-		unsigned int _instanceID; // used to discriminate between multiple objects created by a single script
-		std::shared_ptr< _sol_userdata_ > _solObject; // used to keep track of the lua stack object
-		
-	public:
-		GameObject(const GameObject&) = delete;
-		void operator=(const GameObject&) = delete;
-		~GameObject();
+#include <algorithm> 
+#include <cctype>
+#include <locale>
 
-	GameObject(sol::this_state ts, sol::this_environment te, EntityType& et);
-
-	/// @brief Returns owning entity
-	/// @return shared_ptr to owning entity
-	std::shared_ptr<GameObject> GetOwner() { return _owner; }
-
-		/*
-			Lua Accessors to allow for arbitrary property definitions
-		*/
-		sol::object get_property_lua(const char* name, sol::this_state s);
-		void set_property_lua(const char* name, sol::stack_object object);
-		EntityType& GetEntityType() { return _entityType; };
-		std::string GetEntityTypeString();
-	};
-	
-
+// trim from start (in place)
+static inline void ltrim(std::string &s) {
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](unsigned char ch) {
+        return !std::isspace(ch);
+    }));
 }
-#endif // GAME_OBJECT
+
+// trim from end (in place)
+static inline void rtrim(std::string &s) {
+    s.erase(std::find_if(s.rbegin(), s.rend(), [](unsigned char ch) {
+        return !std::isspace(ch);
+    }).base(), s.end());
+}
+
+// trim from both ends (in place)
+static inline void trim(std::string &s) {
+    rtrim(s);
+    ltrim(s);
+}
+
+// trim from start (copying)
+static inline std::string ltrim_copy(std::string s) {
+    ltrim(s);
+    return s;
+}
+
+// trim from end (copying)
+static inline std::string rtrim_copy(std::string s) {
+    rtrim(s);
+    return s;
+}
+
+#endif
