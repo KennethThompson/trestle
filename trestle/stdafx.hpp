@@ -4,6 +4,11 @@
 #include <EntityDefs.hpp>
 #include <StringFuncs.hpp>
 #include <boost/algorithm/string/case_conv.hpp>
+#include <boost/algorithm/string.hpp>
+#include <regex>
 
 #define FMT_HEADER_ONLY
 #include <fmt/format.h>
+
+
+

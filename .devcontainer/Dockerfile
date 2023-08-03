@@ -34,4 +34,7 @@ RUN LIBUV_VERSION=1.44.2 \
 	#&& rm -rf /var/lib/apt/lists/*
   
 RUN git clone https://github.com/ThePhD/sol2.git
+RUN git clone https://github.com/symisc/unqlite.git
+RUN cd unqlite \
+  && cmake install .
 

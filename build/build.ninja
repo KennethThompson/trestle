@@ -70,7 +70,7 @@ build CMakeFiles/trestle.dir/cmake_pch.hxx.gch: CXX_COMPILER__trestle_Debug CMak
   DEFINES = -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1
   DEP_FILE = CMakeFiles/trestle.dir/cmake_pch.hxx.gch.d
   FLAGS = -g -std=gnu++2a -Winvalid-pch -x c++-header -include /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx
-  INCLUDES = -I../trestle -I/sol2/include -I/usr/include/lua5.4
+  INCLUDES = -I../trestle -I/sol2/include -I/unqlite -I/usr/include/lua5.4
   OBJECT_DIR = CMakeFiles/trestle.dir
   OBJECT_FILE_DIR = CMakeFiles/trestle.dir
 
@@ -78,7 +78,7 @@ build CMakeFiles/trestle.dir/trestle/main.cpp.o: CXX_COMPILER__trestle_Debug ../
   DEFINES = -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1
   DEP_FILE = CMakeFiles/trestle.dir/trestle/main.cpp.o.d
   FLAGS = -g -std=gnu++2a -Winvalid-pch -include /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx
-  INCLUDES = -I../trestle -I/sol2/include -I/usr/include/lua5.4
+  INCLUDES = -I../trestle -I/sol2/include -I/unqlite -I/usr/include/lua5.4
   OBJECT_DIR = CMakeFiles/trestle.dir
   OBJECT_FILE_DIR = CMakeFiles/trestle.dir/trestle
 
@@ -86,7 +86,7 @@ build CMakeFiles/trestle.dir/trestle/GameObject.cpp.o: CXX_COMPILER__trestle_Deb
   DEFINES = -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1
   DEP_FILE = CMakeFiles/trestle.dir/trestle/GameObject.cpp.o.d
   FLAGS = -g -std=gnu++2a -Winvalid-pch -include /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx
-  INCLUDES = -I../trestle -I/sol2/include -I/usr/include/lua5.4
+  INCLUDES = -I../trestle -I/sol2/include -I/unqlite -I/usr/include/lua5.4
   OBJECT_DIR = CMakeFiles/trestle.dir
   OBJECT_FILE_DIR = CMakeFiles/trestle.dir/trestle
 
@@ -94,7 +94,7 @@ build CMakeFiles/trestle.dir/trestle/LoggingService.cpp.o: CXX_COMPILER__trestle
   DEFINES = -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1
   DEP_FILE = CMakeFiles/trestle.dir/trestle/LoggingService.cpp.o.d
   FLAGS = -g -std=gnu++2a -Winvalid-pch -include /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx
-  INCLUDES = -I../trestle -I/sol2/include -I/usr/include/lua5.4
+  INCLUDES = -I../trestle -I/sol2/include -I/unqlite -I/usr/include/lua5.4
   OBJECT_DIR = CMakeFiles/trestle.dir
   OBJECT_FILE_DIR = CMakeFiles/trestle.dir/trestle
 

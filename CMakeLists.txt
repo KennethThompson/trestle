@@ -27,6 +27,7 @@ nlohmann_json::nlohmann_json
 # The required C++ Standard for Server++ is C++14.
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_BUILD_TYPE Debug)
 
 # Add an executable with the above sources
 #add_executable(trestle ${SOURCES})
@@ -49,6 +50,7 @@ set (TRESTLE_PUBLIC_HEADER_FILES
     trestle/ScriptFuncs.hpp
     trestle/EntityDefs.hpp
     trestle/StringFuncs.hpp
+    trestle/stdafx.hpp
 )
 
 
@@ -69,6 +71,7 @@ target_include_directories(trestle
     PRIVATE 
         ${PROJECT_SOURCE_DIR}/trestle
         /sol2/include/
+        /unqlite/
 )
 
 include_directories(/usr/local/include ${LUA_INCLUDE_DIR} ${BOOST_INCLUDEDIR})
