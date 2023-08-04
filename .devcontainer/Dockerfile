@@ -18,7 +18,14 @@ RUN apt-get update && apt-get upgrade -y \
     && apt-get install -y libspdlog-dev \
     && apt-get install -y cmake \
     && apt-get -y update \
-    && apt-get -y install
+    && apt-get -y install \
+    && apt-get -y install libgflags-dev \
+    && apt-get -y install libsnappy-dev \
+    && apt-get -y install zlib1g-dev \
+    && apt-get -y install libbz2-dev \
+    && apt-get -y install liblz4-dev \
+    && apt-get -y install libzstd-dev
+
     
 RUN LIBUV_VERSION=1.44.2 \
 	&& apt-get update \
@@ -32,8 +39,23 @@ RUN LIBUV_VERSION=1.44.2 \
 	#&& apt-get -y autoremove \
 	#&& apt-get -y clean \
 	#&& rm -rf /var/lib/apt/lists/*
-
+RUN git clone https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git \
+  && cd AMQP-CPP \
+  && mkdir build \
+  && cd build \
+  && cmake .. -DAMQP-CPP_LINUX_TCP=ON \
+  && cmake --build . --target install \
+  && make \
+  && make install
 RUN git clone https://github.com/ThePhD/sol2.git
+RUN git clone https://github.com/speedb-io/speedb \
+  && cd speedb \
+  && mkdir build \
+  && cd build \
+  && cmake .. -DCMAKE_BUILD_TYPE=Release \
+  && make speedb \
+  && make install
+
 #RUN cd ${WORKDIR}
 #RUN git clone https://github.com/symisc/unqlite.git
 #RUN cd unqlite \

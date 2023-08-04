@@ -1,8 +1,8 @@
 # ninja log v5
-1	38	0	clean	a31eedcededa8236
-24716	26912	1691078827359681623	CMakeFiles/trestle.dir/trestle/main.cpp.o	84f16a274b13584
-51244	63861	1690913656483967900	trestle	e2f0065d3c0e5b1e
-6	24693	1691078945395805559	CMakeFiles/trestle.dir/cmake_pch.hxx.gch	a07a03740d0132c1
-24716	27107	1691078827553269848	CMakeFiles/trestle.dir/trestle/GameObject.cpp.o	3cf091e8e16bff75
-24717	30306	1691078830742602659	CMakeFiles/trestle.dir/trestle/LoggingService.cpp.o	5e13d664d26f65b0
-0	361	1691078977899705998	build.ninja	e3da57dc93580ca5
+0	37	0	clean	a31eedcededa8236
+8	3329	1691156708487103292	CMakeFiles/trestle.dir/trestle/main.cpp.o	22173d482714644
+3331	4560	1691156709716755400	trestle	5fe428a45e833e6f
+5	24902	1691146032307853227	CMakeFiles/trestle.dir/cmake_pch.hxx.gch	1fccbc4760653a71
+24905	27678	1691146035106328920	CMakeFiles/trestle.dir/trestle/GameObject.cpp.o	b7e76a5595b71cba
+24905	30776	1691146038196263191	CMakeFiles/trestle.dir/trestle/LoggingService.cpp.o	fa09db032afefa96
+0	361	1691186235054639415	build.ninja	e3da57dc93580ca5

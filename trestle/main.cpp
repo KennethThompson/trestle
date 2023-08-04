@@ -2,79 +2,96 @@
 #include <GameObject.hpp>
 #include <ScriptFuncs.hpp>
 
+#include "rocksdb/db.h"
+#include "rocksdb/options.h"
+#include "rocksdb/slice.h"
+
 using namespace std::placeholders;
 #include <memory>
 #include <iostream>
-#include <unqlite.h>
 
-void main2()
+using ROCKSDB_NAMESPACE::DB;
+using ROCKSDB_NAMESPACE::Options;
+using ROCKSDB_NAMESPACE::PinnableSlice;
+using ROCKSDB_NAMESPACE::ReadOptions;
+using ROCKSDB_NAMESPACE::Status;
+using ROCKSDB_NAMESPACE::WriteBatch;
+using ROCKSDB_NAMESPACE::WriteOptions;
+
+#if defined(OS_WIN)
+std::string kDBPath = "C:\\Windows\\TEMP\\rocksdb_simple_example";
+#else
+std::string kDBPath = "/tmp/rocksdb_simple_example";
+#endif
+
+
+int main2()
 {
-	int i,rc;
-	unqlite *pDb;
+  DB* db;
+  Options options;
+  // Optimize RocksDB. This is the easiest way to get RocksDB to perform well
+  options.IncreaseParallelism();
+  options.OptimizeLevelStyleCompaction();
+  // create the DB if it's not already present
+  options.create_if_missing = true;
 
-	// Open our database;
-	rc = unqlite_open(&pDb,"test.db",UNQLITE_OPEN_CREATE);
-	if( rc != UNQLITE_OK ){ return; }
+  // open DB
+  Status s = DB::Open(options, kDBPath, &db);
+  assert(s.ok());
 
-	// Store some records
-	rc = unqlite_kv_store(pDb,"test",-1,"Hello World",11); //test => 'Hello World'
-	if( rc != UNQLITE_OK ){
-	//Insertion fail, Hande error (See below)
-	return;
-	}
-	// A small formatted string
-	rc = unqlite_kv_store_fmt(pDb,"date",-1,"Current date: %d:%d:%d",2013,06,07);
-	if( rc != UNQLITE_OK ){
-	//Insertion fail, Hande error (See below)
-	return;
-	}
+  // Put key-value
+  s = db->Put(WriteOptions(), "key1", "value");
+  assert(s.ok());
+  std::string value;
+  // get value
+  s = db->Get(ReadOptions(), "key1", &value);
+  assert(s.ok());
+  assert(value == "value");
 
-	//Switch to the append interface
-	rc = unqlite_kv_append(pDb,"msg",-1,"Hello, ",7); //msg => 'Hello, '
-	if( rc == UNQLITE_OK ){
-	//The second chunk
-	rc = unqlite_kv_append(pDb,"msg",-1,"Current time is: ",17); //msg => 'Hello, Current time is: '
-	if( rc == UNQLITE_OK ){
-		//The last formatted chunk
-		rc = unqlite_kv_append_fmt(pDb,"msg",-1,"%d:%d:%d",10,16,53); //msg => 'Hello, Current time is: 10:16:53'
-	}
-	}
+  // atomically apply a set of updates
+  {
+    WriteBatch batch;
+    batch.Delete("key1");
+    batch.Put("key2", value);
+    s = db->Write(WriteOptions(), &batch);
+  }
 
-	//Delete a record
-	unqlite_kv_delete(pDb,"test",-1);
+  s = db->Get(ReadOptions(), "key1", &value);
+  assert(s.IsNotFound());
 
-	//Store 20 random records.
-	for(i = 0 ; i < 20 ; ++i ){
-	char zKey[12]; //Random generated key
-	char zData[34]; //Dummy data
+  db->Get(ReadOptions(), "key2", &value);
+  assert(value == "value");
 
-	// generate the random key
-	unqlite_util_random_string(pDb,zKey,sizeof(zKey));
-	
-	// Perform the insertion
-	rc = unqlite_kv_store(pDb,zKey,sizeof(zKey),zData,sizeof(zData));
-	if( rc != UNQLITE_OK ){
-	break;
-	}
-	}
+  {
+    PinnableSlice pinnable_val;
+    db->Get(ReadOptions(), db->DefaultColumnFamily(), "key2", &pinnable_val);
+    assert(pinnable_val == "value");
+  }
 
-	if( rc != UNQLITE_OK ){
-	//Insertion fail, Handle error
-	const char *zBuf;
-	int iLen;
-	/* Something goes wrong, extract the database error log */
-	unqlite_config(pDb,UNQLITE_CONFIG_ERR_LOG,&zBuf,&iLen);
-	if( iLen > 0 ){
-		puts(zBuf);
-	}
-	if( rc != UNQLITE_BUSY && rc != UNQLITE_NOTIMPLEMENTED ){
-		/* Rollback */
-	unqlite_rollback(pDb);
-	}
-	}
+  {
+    std::string string_val;
+    // If it cannot pin the value, it copies the value to its internal buffer.
+    // The intenral buffer could be set during construction.
+    PinnableSlice pinnable_val(&string_val);
+    db->Get(ReadOptions(), db->DefaultColumnFamily(), "key2", &pinnable_val);
+    assert(pinnable_val == "value");
+    // If the value is not pinned, the internal buffer must have the value.
+    assert(pinnable_val.IsPinned() || string_val == "value");
+  }
 
-	//Auto-commit the transaction and close our handle.
-	unqlite_close(pDb);
+  PinnableSlice pinnable_val;
+  s = db->Get(ReadOptions(), db->DefaultColumnFamily(), "key1", &pinnable_val);
+  assert(s.IsNotFound());
+  // Reset PinnableSlice after each use and before each reuse
+  pinnable_val.Reset();
+  db->Get(ReadOptions(), db->DefaultColumnFamily(), "key2", &pinnable_val);
+  assert(pinnable_val == "value");
+  pinnable_val.Reset();
+  // The Slice pointed by pinnable_val is not valid after this point
+
+  delete db;
+
+  return 0;
 }
 
 

@@ -20,6 +20,7 @@ find_package(nlohmann_json REQUIRED)
 find_package(spdlog REQUIRED)
 
 
+
 set(TRESTLE_PRIVATE_LIBRARIES
 Boost::boost
 nlohmann_json::nlohmann_json
@@ -43,7 +44,6 @@ set (TRESTLE_PUBLIC_SOURCE_FILES
     trestle/main.cpp
     trestle/GameObject.cpp
     trestle/LoggingService.cpp
-    unqlite.c
 )
 
 set (TRESTLE_PUBLIC_HEADER_FILES
@@ -53,13 +53,13 @@ set (TRESTLE_PUBLIC_HEADER_FILES
     trestle/EntityDefs.hpp
     trestle/StringFuncs.hpp
     trestle/stdafx.hpp
-    unqlite.h
 )
 
 
 add_executable(trestle
     #${TRESTLE_PUBLIC_HEADER_FILES}
     ${TRESTLE_PUBLIC_SOURCE_FILES}
+    
 )
 
 target_precompile_headers(trestle
@@ -73,15 +73,20 @@ target_precompile_headers(trestle
 target_include_directories(trestle 
     PRIVATE 
         ${PROJECT_SOURCE_DIR}/trestle
+        ${PROJECT_SOURCE_DIR}/unqlite
         /sol2/include/
-        /unqlite/
+        /speedb/include/
+        #/unqlite/
 )
 
-include_directories(/usr/local/include ${LUA_INCLUDE_DIR} ${BOOST_INCLUDEDIR} ${UNQLITE_INCLUDE_DIR})
+include_directories(/usr/local/include ${LUA_INCLUDE_DIR} ${BOOST_INCLUDEDIR})
 
 target_link_libraries(trestle
     ${TRESTLE_PRIVATE_LIBRARIES}
     ${LUA_LIBRARIES}
-    ${UNQLITE_STATIC_LIB}
+    speedb
     uv
+    amqpcpp
 )
+
+link_directories(/speedb/lib)
