@@ -24,7 +24,9 @@ RUN apt-get update && apt-get upgrade -y \
     && apt-get -y install zlib1g-dev \
     && apt-get -y install libbz2-dev \
     && apt-get -y install liblz4-dev \
-    && apt-get -y install libzstd-dev
+    && apt-get -y install libzstd-dev \
+    && apt-get -y install distcc \
+    && apt-get -y install ccache
 
     
 RUN LIBUV_VERSION=1.44.2 \
@@ -55,7 +57,7 @@ RUN git clone https://github.com/speedb-io/speedb \
   && cmake .. -DCMAKE_BUILD_TYPE=Release \
   && make speedb \
   && make install
-
+ RUN export DISTCC_HOSTS='10.0.0.142/32 10.0.0.142:3632/32'
 #RUN cd ${WORKDIR}
 #RUN git clone https://github.com/symisc/unqlite.git
 #RUN cd unqlite \
