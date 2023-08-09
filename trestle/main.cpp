@@ -27,6 +27,7 @@ std::string kDBPath = "/tmp/rocksdb_simple_example";
 
 int main2()
 {
+  std::cout << "OK!" << std::endl;
   DB* db;
   Options options;
   // Optimize RocksDB. This is the easiest way to get RocksDB to perform well

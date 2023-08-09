@@ -84,9 +84,9 @@ include_directories(/usr/local/include ${LUA_INCLUDE_DIR} ${BOOST_INCLUDEDIR})
 target_link_libraries(trestle
     ${TRESTLE_PRIVATE_LIBRARIES}
     ${LUA_LIBRARIES}
-    speedb
+    /speedb/build/libspeedb.so
     uv
     amqpcpp
 )
 
-link_directories(/speedb/lib)
+link_directories(/speedb/build)

@@ -33,6 +33,11 @@
 	// "postCreateCommand": "gcc -v",
 
 	// Comment out this line to run as root instead.
-	"remoteUser": "vscode"
+	"remoteUser": "vscode",
+	"mounts": [
+		"source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+	],
+	"postCreateCommand": "sudo chown vscode node_modules"
+
 
 }
