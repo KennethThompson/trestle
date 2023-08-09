@@ -63,3 +63,5 @@ RUN git clone https://github.com/speedb-io/speedb \
 #RUN cd unqlite \
 #  && cmake install .
 
+RUN git config --global user.name "Ken Thompson" && git config --global user.email "kenthompson1@gmail.com"
+
