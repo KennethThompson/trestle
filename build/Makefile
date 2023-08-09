@@ -143,9 +143,9 @@ trestle/fast:
 .PHONY : trestle/fast
 
 # target to build an object file
-cmake_pch.hxx.gch:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/cmake_pch.hxx.gch
-.PHONY : cmake_pch.hxx.gch
+cmake_pch.hxx.pch:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/cmake_pch.hxx.pch
+.PHONY : cmake_pch.hxx.pch
 
 # target to preprocess a source file
 cmake_pch.hxx.i:
@@ -247,7 +247,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... trestle"
-	@echo "... cmake_pch.hxx.gch"
+	@echo "... cmake_pch.hxx.pch"
 	@echo "... cmake_pch.hxx.i"
 	@echo "... cmake_pch.hxx.s"
 	@echo "... trestle/GameObject.o"

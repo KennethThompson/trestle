@@ -39,5 +39,4 @@
 	],
 	"postCreateCommand": "sudo chown vscode node_modules"
 
-
 }

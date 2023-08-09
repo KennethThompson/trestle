@@ -55,7 +55,7 @@ RUN git clone https://github.com/speedb-io/speedb \
   && mkdir build \
   && cd build \
   && cmake .. -DCMAKE_BUILD_TYPE=Release \
-  && make speedb-shared -j 4 speedb
+  && make -j 4 speedb-shared
   #&& make install
  #RUN export DISTCC_HOSTS='10.0.0.142/32 10.0.0.142:3632/32'
 #RUN cd ${WORKDIR}
