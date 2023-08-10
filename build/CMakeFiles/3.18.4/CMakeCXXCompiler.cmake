@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-set(CMAKE_CXX_COMPILER "/usr/bin/aarch64-linux-gnu-g++")
-=======
 set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
->>>>>>> 62dd8bd (more dev)
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "Clang")
 set(CMAKE_CXX_COMPILER_VERSION "11.0.1")
@@ -24,19 +20,11 @@ set(CMAKE_CXX_SIMULATE_VERSION "")
 
 
 
-<<<<<<< HEAD
-set(CMAKE_AR "/usr/bin/aarch64-linux-gnu-ar")
-set(CMAKE_CXX_COMPILER_AR "/usr/bin/aarch64-linux-gnu-gcc-ar-10")
-set(CMAKE_RANLIB "/usr/bin/aarch64-linux-gnu-ranlib")
-set(CMAKE_CXX_COMPILER_RANLIB "/usr/bin/aarch64-linux-gnu-gcc-ranlib-10")
-set(CMAKE_LINKER "/usr/bin/aarch64-linux-gnu-ld")
-=======
 set(CMAKE_AR "/usr/bin/ar")
 set(CMAKE_CXX_COMPILER_AR "/usr/lib/llvm-11/bin/llvm-ar")
 set(CMAKE_RANLIB "/usr/bin/ranlib")
 set(CMAKE_CXX_COMPILER_RANLIB "/usr/lib/llvm-11/bin/llvm-ranlib")
 set(CMAKE_LINKER "/usr/bin/ld")
->>>>>>> 62dd8bd (more dev)
 set(CMAKE_MT "")
 set(CMAKE_COMPILER_IS_GNUCXX )
 set(CMAKE_CXX_COMPILER_LOADED 1)
@@ -95,13 +83,7 @@ endif()
 
 
 
-<<<<<<< HEAD
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/usr/include/c++/10;/usr/include/aarch64-linux-gnu/c++/10;/usr/include/c++/10/backward;/usr/lib/gcc/aarch64-linux-gnu/10/include;/usr/local/include;/usr/include/aarch64-linux-gnu;/usr/include")
-set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;m;gcc_s;gcc;c;gcc_s;gcc")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/usr/lib/gcc/aarch64-linux-gnu/10;/usr/lib/aarch64-linux-gnu;/usr/lib;/lib/aarch64-linux-gnu;/lib")
-=======
 set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/usr/include/c++/10;/usr/include/aarch64-linux-gnu/c++/10;/usr/include/c++/10/backward;/usr/local/include;/usr/lib/llvm-11/lib/clang/11.0.1/include;/usr/include/aarch64-linux-gnu;/usr/include")
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;m;gcc_s;gcc;c;gcc_s;gcc")
 set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/usr/lib/gcc/aarch64-linux-gnu/10;/usr/lib/aarch64-linux-gnu;/lib/aarch64-linux-gnu;/usr/lib;/usr/lib/llvm-11/lib;/lib")
->>>>>>> 62dd8bd (more dev)
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

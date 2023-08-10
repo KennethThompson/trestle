@@ -18,7 +18,7 @@ find_package(Boost COMPONENTS container REQUIRED)
 find_package(Lua REQUIRED)
 find_package(nlohmann_json REQUIRED)
 find_package(spdlog REQUIRED)
-
+find_package(Catch2 3 REQUIRED)
 
 
 set(TRESTLE_PRIVATE_LIBRARIES
@@ -86,7 +86,8 @@ target_link_libraries(trestle
     ${LUA_LIBRARIES}
     /speedb/build/libspeedb.so
     uv
-    amqpcpp
+    amqpcpp 
+    Catch2::Catch2WithMain
 )
 
-link_directories(/speedb/build)
+#link_directories(/speedb/build)

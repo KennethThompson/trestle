@@ -10,6 +10,11 @@ using namespace std::placeholders;
 #include <memory>
 #include <iostream>
 
+#include <catch2/catch_test_macros.hpp>
+#include <catch2/benchmark/catch_benchmark.hpp>
+
+#include <cstdint>
+
 using ROCKSDB_NAMESPACE::DB;
 using ROCKSDB_NAMESPACE::Options;
 using ROCKSDB_NAMESPACE::PinnableSlice;
@@ -23,6 +28,35 @@ std::string kDBPath = "C:\\Windows\\TEMP\\rocksdb_simple_example";
 #else
 std::string kDBPath = "/tmp/rocksdb_simple_example";
 #endif
+
+uint64_t fibonacci(uint64_t number) {
+    return number < 2 ? number : fibonacci(number - 1) + fibonacci(number - 2);
+}
+
+TEST_CASE("Benchmark Fibonacci", "[!benchmark]") {
+    REQUIRE(fibonacci(5) == 5);
+
+    REQUIRE(fibonacci(20) == 6'765);
+    BENCHMARK("fibonacci 20") {
+        return fibonacci(20);
+    };
+
+    REQUIRE(fibonacci(25) == 75'025);
+    BENCHMARK("fibonacci 25") {
+        return fibonacci(25);
+    };
+}
+
+uint32_t factorial( uint32_t number ) {
+    return number <= 1 ? number : factorial(number-1) * number;
+}
+
+TEST_CASE( "Factorials are computed", "[factorial]" ) {
+    REQUIRE( factorial( 1) == 1 );
+    REQUIRE( factorial( 2) == 2 );
+    REQUIRE( factorial( 3) == 6 );
+    REQUIRE( factorial(10) == 3'628'800 );
+}
 
 
 int main2()
@@ -114,7 +148,7 @@ struct luaSubsystem
 
 };
 
-int main() {
+int main3() {
 std::cout << "=== usertype_initializers ===" << std::endl;
 	main2();
 	/*
