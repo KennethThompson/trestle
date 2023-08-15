@@ -61,8 +61,8 @@ RUN git clone https://github.com/catchorg/Catch2.git \
   && mkdir build \
   && cd build \
   && cmake .. \
-  && make -j 7
-  #&& make install
+  && make -j 7 \
+  && make install
  #RUN export DISTCC_HOSTS='10.0.0.142/32 10.0.0.142:3632/32'
 #RUN cd ${WORKDIR}
 #RUN git clone https://github.com/symisc/unqlite.git

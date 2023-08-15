@@ -22,9 +22,10 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 // DEALINGS IN THE SOFTWARE.
 // ==========================================================================
-#if defined(SCRIPT_FUNCS)
-#define SCRIPT_FUNCS
 #include <stdafx.hpp>
+#if !defined(SCRIPT_FUNCS)
+#define SCRIPT_FUNCS
+
 
 namespace trestle {
 
@@ -167,13 +168,14 @@ namespace trestle {
                     file_tokens.push_back(token);
                 }
             }
+            /*
             std::string ff = file_tokens[0];
             file_tokens[0] = "_INTERNAL_PHYSICAL_SCRIPT_PATH_ = '" +
                 std::regex_replace(
                     script_path, std::regex(global_settings::Instance().GetSetting(DEFAULT_GAME_DATA_PATH)), "") + "'  ";
             file_tokens[0] += ff;
             script_text += vector_to_string(file_tokens, '\n');  
-
+            */
             
 
             // std::cout << script_text << std::endl;
@@ -183,16 +185,19 @@ namespace trestle {
             }
             return true;
         }
-        static bool LoadScriptFromDisk(std::string& script_path,
+        /*
+                static bool LoadScriptFromDisk(std::string& script_path,
                                             std::string& script_text,
                                             EntityType& obj_type,
                                             std::string& reason)
         {
-            std::ifstream in(scriptPath);
+            std::ifstream in(script_path);
             std::stringstream buffer;
             buffer << in.rdbuf();
             return ParseScriptText(buffer, script_path, script_text, obj_type, reason);
         }
+        */
+
 
         bool GetEntityPathFromIDString(const std::string& entity_id, std::string& entity_script_path, unsigned int& instanceid)
         {

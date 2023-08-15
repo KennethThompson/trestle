@@ -41,9 +41,10 @@ set(CMAKE_BUILD_TYPE Debug)
 #)
 
 set (TRESTLE_PUBLIC_SOURCE_FILES
-    trestle/main.cpp
+    #trestle/main.cpp
     trestle/GameObject.cpp
     trestle/LoggingService.cpp
+    trestle/SettingsDB.cpp
 )
 
 set (TRESTLE_PUBLIC_HEADER_FILES
@@ -52,16 +53,23 @@ set (TRESTLE_PUBLIC_HEADER_FILES
     trestle/ScriptFuncs.hpp
     trestle/EntityDefs.hpp
     trestle/StringFuncs.hpp
+    trestle/SettingsDB.hpp
     trestle/stdafx.hpp
 )
 
 
 add_executable(trestle
     #${TRESTLE_PUBLIC_HEADER_FILES}
+    trestle/main.cpp
     ${TRESTLE_PUBLIC_SOURCE_FILES}
     
 )
-
+add_executable(tests
+    #${TRESTLE_PUBLIC_HEADER_FILES}
+    trestle/tests.cpp
+    ${TRESTLE_PUBLIC_SOURCE_FILES}
+    
+)
 target_precompile_headers(trestle
   PUBLIC
     trestle/stdafx.hpp
@@ -69,8 +77,22 @@ target_precompile_headers(trestle
    #[["other_header.h"]]
     #<unordered_map>
 )
-
+target_precompile_headers(tests
+  PUBLIC
+    trestle/stdafx.hpp
+  PRIVATE
+   #[["other_header.h"]]
+    #<unordered_map>
+)
 target_include_directories(trestle 
+    PRIVATE 
+        ${PROJECT_SOURCE_DIR}/trestle
+        ${PROJECT_SOURCE_DIR}/unqlite
+        /sol2/include/
+        /speedb/include/
+        #/unqlite/
+)
+target_include_directories(tests 
     PRIVATE 
         ${PROJECT_SOURCE_DIR}/trestle
         ${PROJECT_SOURCE_DIR}/unqlite
@@ -87,7 +109,20 @@ target_link_libraries(trestle
     /speedb/build/libspeedb.so
     uv
     amqpcpp 
+)
+
+target_link_libraries(tests
+    ${TRESTLE_PRIVATE_LIBRARIES}
+    ${LUA_LIBRARIES}
+    /speedb/build/libspeedb.so
+    uv
+    amqpcpp 
     Catch2::Catch2WithMain
 )
+
+#list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
+#include(CTest)
+#include(Catch)
+#catch_discover_tests(trestle)
 
 #link_directories(/speedb/build)

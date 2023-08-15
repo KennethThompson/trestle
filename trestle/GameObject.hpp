@@ -22,8 +22,8 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 // DEALINGS IN THE SOFTWARE.
 // ==========================================================================
-#if !defined(GAME_OBJECT)
-#define GAME_OBJECT
+#ifndef GAME_OBJECT_
+#define GAME_OBJECT_
 #include <stdafx.hpp>
 
 namespace trestle
