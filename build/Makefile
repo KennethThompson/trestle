@@ -130,6 +130,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named tests
+
+# Build rule for target.
+tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests
+.PHONY : tests
+
+# fast build rule for target.
+tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
+.PHONY : tests/fast
+
+#=============================================================================
 # Target rules for targets named trestle
 
 # Build rule for target.
@@ -144,16 +157,19 @@ trestle/fast:
 
 # target to build an object file
 cmake_pch.hxx.pch:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/cmake_pch.hxx.pch
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/cmake_pch.hxx.pch
 .PHONY : cmake_pch.hxx.pch
 
 # target to preprocess a source file
 cmake_pch.hxx.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/cmake_pch.hxx.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/cmake_pch.hxx.i
 .PHONY : cmake_pch.hxx.i
 
 # target to generate assembly for a file
 cmake_pch.hxx.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/cmake_pch.hxx.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/cmake_pch.hxx.s
 .PHONY : cmake_pch.hxx.s
 
@@ -163,6 +179,7 @@ trestle/GameObject.o: trestle/GameObject.cpp.o
 
 # target to build an object file
 trestle/GameObject.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/trestle/GameObject.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/trestle/GameObject.cpp.o
 .PHONY : trestle/GameObject.cpp.o
 
@@ -172,6 +189,7 @@ trestle/GameObject.i: trestle/GameObject.cpp.i
 
 # target to preprocess a source file
 trestle/GameObject.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/trestle/GameObject.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/trestle/GameObject.cpp.i
 .PHONY : trestle/GameObject.cpp.i
 
@@ -181,6 +199,7 @@ trestle/GameObject.s: trestle/GameObject.cpp.s
 
 # target to generate assembly for a file
 trestle/GameObject.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/trestle/GameObject.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/trestle/GameObject.cpp.s
 .PHONY : trestle/GameObject.cpp.s
 
@@ -190,6 +209,7 @@ trestle/LoggingService.o: trestle/LoggingService.cpp.o
 
 # target to build an object file
 trestle/LoggingService.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/trestle/LoggingService.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/trestle/LoggingService.cpp.o
 .PHONY : trestle/LoggingService.cpp.o
 
@@ -199,6 +219,7 @@ trestle/LoggingService.i: trestle/LoggingService.cpp.i
 
 # target to preprocess a source file
 trestle/LoggingService.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/trestle/LoggingService.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/trestle/LoggingService.cpp.i
 .PHONY : trestle/LoggingService.cpp.i
 
@@ -208,8 +229,39 @@ trestle/LoggingService.s: trestle/LoggingService.cpp.s
 
 # target to generate assembly for a file
 trestle/LoggingService.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/trestle/LoggingService.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/trestle/LoggingService.cpp.s
 .PHONY : trestle/LoggingService.cpp.s
+
+trestle/SettingsDB.o: trestle/SettingsDB.cpp.o
+
+.PHONY : trestle/SettingsDB.o
+
+# target to build an object file
+trestle/SettingsDB.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/trestle/SettingsDB.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/trestle/SettingsDB.cpp.o
+.PHONY : trestle/SettingsDB.cpp.o
+
+trestle/SettingsDB.i: trestle/SettingsDB.cpp.i
+
+.PHONY : trestle/SettingsDB.i
+
+# target to preprocess a source file
+trestle/SettingsDB.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/trestle/SettingsDB.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/trestle/SettingsDB.cpp.i
+.PHONY : trestle/SettingsDB.cpp.i
+
+trestle/SettingsDB.s: trestle/SettingsDB.cpp.s
+
+.PHONY : trestle/SettingsDB.s
+
+# target to generate assembly for a file
+trestle/SettingsDB.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/trestle/SettingsDB.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/trestle/SettingsDB.cpp.s
+.PHONY : trestle/SettingsDB.cpp.s
 
 trestle/main.o: trestle/main.cpp.o
 
@@ -238,6 +290,33 @@ trestle/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trestle.dir/build.make CMakeFiles/trestle.dir/trestle/main.cpp.s
 .PHONY : trestle/main.cpp.s
 
+trestle/tests.o: trestle/tests.cpp.o
+
+.PHONY : trestle/tests.o
+
+# target to build an object file
+trestle/tests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/trestle/tests.cpp.o
+.PHONY : trestle/tests.cpp.o
+
+trestle/tests.i: trestle/tests.cpp.i
+
+.PHONY : trestle/tests.i
+
+# target to preprocess a source file
+trestle/tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/trestle/tests.cpp.i
+.PHONY : trestle/tests.cpp.i
+
+trestle/tests.s: trestle/tests.cpp.s
+
+.PHONY : trestle/tests.s
+
+# target to generate assembly for a file
+trestle/tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/trestle/tests.cpp.s
+.PHONY : trestle/tests.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -246,6 +325,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... tests"
 	@echo "... trestle"
 	@echo "... cmake_pch.hxx.pch"
 	@echo "... cmake_pch.hxx.i"
@@ -256,9 +336,15 @@ help:
 	@echo "... trestle/LoggingService.o"
 	@echo "... trestle/LoggingService.i"
 	@echo "... trestle/LoggingService.s"
+	@echo "... trestle/SettingsDB.o"
+	@echo "... trestle/SettingsDB.i"
+	@echo "... trestle/SettingsDB.s"
 	@echo "... trestle/main.o"
 	@echo "... trestle/main.i"
 	@echo "... trestle/main.s"
+	@echo "... trestle/tests.o"
+	@echo "... trestle/tests.i"
+	@echo "... trestle/tests.s"
 .PHONY : help
 
 

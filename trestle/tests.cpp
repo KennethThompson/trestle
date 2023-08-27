@@ -6,72 +6,23 @@
 
 TEST_CASE("Settings Database", "[speedb]") {
     SettingsDB db;
-    db.TestMe();
-}
+    REQUIRE(db.initialize() == true);
+    std::string key("key1");
 
-
-TEST_CASE( "vectors can be sized and resized", "[vector]" ) {
-
-    std::vector<int> v( 5 );
-
-    REQUIRE( v.size() == 5 );
-    REQUIRE( v.capacity() >= 5 );
-
-    SECTION( "resizing bigger changes size and capacity" ) {
-        v.resize( 10 );
-
-        REQUIRE( v.size() == 10 );
-        REQUIRE( v.capacity() >= 10 );
+    SECTION( "writing value to database" ) {
+        std::string val("value1");
+        bool b = db.PutValue(key, val);
+        REQUIRE( b == true);
     }
-    SECTION( "resizing smaller changes size but not capacity" ) {
-        v.resize( 0 );
-
-        REQUIRE( v.size() == 0 );
-        REQUIRE( v.capacity() >= 5 );
+    SECTION( "reading value to database" ) {
+        std::string res("");
+        bool b = db.GetValue(key, res);
+        REQUIRE(b == true);
+        REQUIRE(res.compare("value1")== 0);
     }
-    SECTION( "reserving bigger changes capacity but not size" ) {
-        v.reserve( 10 );
-
-        REQUIRE( v.size() == 5 );
-        REQUIRE( v.capacity() >= 10 );
-    }
-    SECTION( "reserving smaller does not change size or capacity" ) {
-        v.reserve( 0 );
-
-        REQUIRE( v.size() == 5 );
-        REQUIRE( v.capacity() >= 5 );
+    SECTION( "delete value to database" ) {
+        bool b = db.DeleteValue(key);
+        REQUIRE(b == true);
     }
 }
 
-TEST_CASE( "2vectors can be sized and resized", "[vector]" ) {
-
-    std::vector<int> v( 5 );
-
-    REQUIRE( v.size() == 5 );
-    REQUIRE( v.capacity() >= 5 );
-
-    SECTION( "resizing bigger changes size and capacity" ) {
-        v.resize( 10 );
-
-        REQUIRE( v.size() == 10 );
-        REQUIRE( v.capacity() >= 10 );
-    }
-    SECTION( "resizing smaller changes size but not capacity" ) {
-        v.resize( 0 );
-
-        REQUIRE( v.size() == 0 );
-        REQUIRE( v.capacity() >= 5 );
-    }
-    SECTION( "reserving bigger changes capacity but not size" ) {
-        v.reserve( 10 );
-
-        REQUIRE( v.size() == 5 );
-        REQUIRE( v.capacity() >= 10 );
-    }
-    SECTION( "reserving smaller does not change size or capacity" ) {
-        v.reserve( 0 );
-
-        REQUIRE( v.size() == 5 );
-        REQUIRE( v.capacity() >= 5 );
-    }
-}

@@ -54,6 +54,7 @@ set (TRESTLE_PUBLIC_HEADER_FILES
     trestle/EntityDefs.hpp
     trestle/StringFuncs.hpp
     trestle/SettingsDB.hpp
+    trestle/RabbitHandler.hpp
     trestle/stdafx.hpp
 )
 
@@ -108,7 +109,9 @@ target_link_libraries(trestle
     ${LUA_LIBRARIES}
     /speedb/build/libspeedb.so
     uv
-    amqpcpp 
+    amqpcpp
+    dl
+    pthread
 )
 
 target_link_libraries(tests
@@ -118,6 +121,8 @@ target_link_libraries(tests
     uv
     amqpcpp 
     Catch2::Catch2WithMain
+    dl
+    pthread
 )
 
 #list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)

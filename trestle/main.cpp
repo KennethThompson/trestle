@@ -1,15 +1,14 @@
 #include <stdafx.hpp>
 #include <GameObject.hpp>
 #include <ScriptFuncs.hpp>
+#include <catch2/catch_session.hpp>
+#include <catch2/catch_test_macros.hpp>
 
+#include <uv.h>
+#include <amqpcpp.h>
+#include <amqpcpp/libuv.h>
 
-
-
-
-
-
-
-
+#include <RabbitHandler.hpp>
 struct luaSubsystem
 {
 	luaSubsystem()
@@ -29,7 +28,8 @@ struct luaSubsystem
 
 int main(int argc, char const * const argv[]) {
 //std::cout << "=== usertype_initializers ===" << std::endl;
-   //int result = Catch::Session().run( argc, argv );
+	//int result = Catch::Session().run( argc, argv );
+	//libuv_main();
 	//main2();
 	/*
 	{ // additional scope to make usertype destroy earlier
@@ -79,6 +79,75 @@ int main(int argc, char const * const argv[]) {
 		//sol_c_assert(h2.data == 0);
 	}
 	*/
+
+
+    // access to the event loop
+    auto *loop = uv_default_loop();
+    
+    // handler for libev
+    MyHandler handler(loop);
+    
+    // make a connection
+    AMQP::TcpConnection connection(&handler, AMQP::Address("amqp://guest:guest@192.168.0.2/"));
+    
+    // we need a channel too
+    AMQP::TcpChannel channel(&connection);
+    
+    // create a temporary queue
+    channel.declareQueue(AMQP::exclusive).onSuccess([&connection](const std::string &name, uint32_t messagecount, uint32_t consumercount) {
+        
+        // report the name of the temporary queue
+        std::cout << "declared queue " << name << std::endl;
+    });
+
+		// declare an exchange, and install callbacks for success and failure
+	channel.declareExchange("my-exchange")
+
+    .onSuccess([]() {
+        // by now the exchange is created
+		 std::cout << "declared exchange " << "my-exchange" << std::endl;
+    })
+
+    .onError([](const char *message) {
+        // something went wrong creating the exchange
+		std::cout << "ERROR! " << message << std::endl;
+    });
+    
+
+	//channel.publish()
+    
+    // run the loop
+	while(true)
+	{
+		// start a transaction
+		channel.startTransaction();
+
+		// publish a number of messages
+		for( int x = 0; x < 100; x++ )
+			channel.publish("my-exchange", "my-key", "my first message");
+			channel.publish("my-exchange", "my-key", "another message");
+
+		// commit the transactions, and set up callbacks that are called when
+		// the transaction was successful or not
+		channel.commitTransaction()
+			.onSuccess([]() {
+				std::cout << "SUCCESS!" << std::endl;
+				// all messages were successfully published
+			})
+			.onError([](const char *message) {
+				std::cout << "ERROR! " << message << std::endl;
+				// none of the messages were published
+				// now we have to do it all over again
+			});
+    	uv_run(loop, UV_RUN_NOWAIT);
+		//break;
+		sleep(.1);
+	}
+
+    // done
+    //return 0;
+
 	std::cout << std::endl;
     return 0;
 }
+

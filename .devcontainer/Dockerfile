@@ -24,7 +24,8 @@ RUN apt-get update && apt-get upgrade -y \
     && apt-get -y install zlib1g-dev \
     && apt-get -y install libbz2-dev \
     && apt-get -y install liblz4-dev \
-    && apt-get -y install libzstd-dev 
+    && apt-get -y install libzstd-dev \
+    && apt-get -y install golang
     #&& apt-get -y install distcc \
     #&& apt-get -y install ccache
 
