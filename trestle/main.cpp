@@ -95,18 +95,14 @@ int main(int argc, char const * const argv[]) {
     AMQP::TcpChannel channel(&connection);
     
     // create a temporary queue
-    channel.declareQueue(AMQP::exclusive)
-	.onSuccess([&connection](const std::string &name, uint32_t messagecount, uint32_t consumercount) {
-        
+    channel.declareQueue(AMQP::exclusive).onSuccess([&connection](const std::string &name, uint32_t messagecount, uint32_t consumercount) {
         // report the name of the temporary queue
         std::cout << "declared queue " << name << std::endl;
     })
-		.onError([](const char *message) {
+   .onError([](const char *message) {
+        // something went wrong creating the exchange
 		std::cout << "ERROR! " << message << std::endl;
-		// none of the messages were published
-		// now we have to do it all over again
-	});
-
+    });
 		// declare an exchange, and install callbacks for success and failure
 	channel.declareExchange("my-exchange")
 
