@@ -14,10 +14,10 @@
 # EXTERNAL cache entries
 ########################
 
-Boost_CONTAINER_LIBRARY_RELEASE:STRING=/usr/lib/aarch64-linux-gnu/libboost_container.so.1.74.0
+Boost_CONTAINER_LIBRARY_RELEASE:STRING=/usr/lib/x86_64-linux-gnu/libboost_container.so.1.74.0
 
 //The directory containing a CMake configuration file for Boost.
-Boost_DIR:PATH=/usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0
+Boost_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0
 
 //Path to a file.
 Boost_INCLUDE_DIR:PATH=/usr/include
@@ -30,9 +30,6 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //No help, variable specified on the command line.
 CMAKE_BUILD_TYPE:STRING=Debug
-
-//Enable/Disable color output during build.
-CMAKE_COLOR_MAKEFILE:BOOL=ON
 
 //No help, variable specified on the command line.
 CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/clang++
@@ -109,8 +106,8 @@ CMAKE_INSTALL_PREFIX:PATH=/usr/local
 //Path to a program.
 CMAKE_LINKER:FILEPATH=/usr/bin/ld
 
-//Path to a program.
-CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/gmake
+//Program used to build from build.ninja files.
+CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/ninja
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -219,25 +216,25 @@ Catch2_DIR:PATH=/usr/local/lib/cmake/Catch2
 LUA_INCLUDE_DIR:PATH=/usr/include/lua5.4
 
 //Path to a library.
-LUA_LIBRARY:FILEPATH=/usr/lib/aarch64-linux-gnu/liblua5.4.so
+LUA_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/liblua5.4.so
 
 //Path to a library.
-LUA_MATH_LIBRARY:FILEPATH=/usr/lib/aarch64-linux-gnu/libm.so
+LUA_MATH_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libm.so
 
 //The directory containing a CMake configuration file for boost_container.
-boost_container_DIR:PATH=/usr/lib/aarch64-linux-gnu/cmake/boost_container-1.74.0
+boost_container_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_container-1.74.0
 
 //The directory containing a CMake configuration file for boost_headers.
-boost_headers_DIR:PATH=/usr/lib/aarch64-linux-gnu/cmake/boost_headers-1.74.0
+boost_headers_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_headers-1.74.0
 
 //The directory containing a CMake configuration file for fmt.
-fmt_DIR:PATH=/usr/lib/aarch64-linux-gnu/cmake/fmt
+fmt_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/fmt
 
 //The directory containing a CMake configuration file for nlohmann_json.
 nlohmann_json_DIR:PATH=/usr/lib/cmake/nlohmann_json
 
 //The directory containing a CMake configuration file for spdlog.
-spdlog_DIR:PATH=/usr/lib/aarch64-linux-gnu/cmake/spdlog
+spdlog_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/spdlog
 
 //Value Computed by CMake
 trestle_BINARY_DIR:STATIC=/workspaces/trestle/build
@@ -264,8 +261,6 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=18
 //Patch version of cmake used to create the current loaded cache
 CMAKE_CACHE_PATCH_VERSION:INTERNAL=4
-//ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
-CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=/usr/bin/cmake
 //Path to cpack program executable.
@@ -321,7 +316,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //Name of external makefile project generator.
 CMAKE_EXTRA_GENERATOR:INTERNAL=
 //Name of generator.
-CMAKE_GENERATOR:INTERNAL=Unix Makefiles
+CMAKE_GENERATOR:INTERNAL=Ninja
 //Generator instance identifier.
 CMAKE_GENERATOR_INSTANCE:INTERNAL=
 //Name of generator platform.
@@ -402,9 +397,9 @@ CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Boost
-FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake][cfound components: container ][v1.74.0()]
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake][cfound components: container ][v1.74.0()]
 //Details about finding Lua
-FIND_PACKAGE_MESSAGE_DETAILS_Lua:INTERNAL=[/usr/lib/aarch64-linux-gnu/liblua5.4.so;/usr/lib/aarch64-linux-gnu/libm.so][/usr/include/lua5.4][v5.4.2()]
+FIND_PACKAGE_MESSAGE_DETAILS_Lua:INTERNAL=[/usr/lib/x86_64-linux-gnu/liblua5.4.so;/usr/lib/x86_64-linux-gnu/libm.so][/usr/include/lua5.4][v5.4.2()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding nlohmann_json
