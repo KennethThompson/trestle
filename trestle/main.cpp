@@ -22,8 +22,6 @@ struct luaSubsystem
 	{
 		return sol::state_view(this->lua);
 	}
-	
-
 };
 
 int main(int argc, char const * const argv[]) {
@@ -93,9 +91,9 @@ int main(int argc, char const * const argv[]) {
     
     // we need a channel too
     AMQP::TcpChannel channel(&connection);
-    
+    std::string queueName = "hello";
     // create a temporary queue
-    channel.declareQueue(AMQP::exclusive).onSuccess([&connection](const std::string &name, uint32_t messagecount, uint32_t consumercount) {
+    channel.declareQueue(queueName, 0).onSuccess([&connection](const std::string &name, uint32_t messagecount, uint32_t consumercount) {
         // report the name of the temporary queue
         std::cout << "declared queue " << name << std::endl;
     })
@@ -115,7 +113,7 @@ int main(int argc, char const * const argv[]) {
         // something went wrong creating the exchange
 		std::cout << "ERROR! " << message << std::endl;
     });
-    sleep((double)10);
+    //sleep((double)10);
 
 	//channel.publish()
     
@@ -126,9 +124,9 @@ int main(int argc, char const * const argv[]) {
 		channel.startTransaction();
 
 		// publish a number of messages
-		for( int x = 0; x < 100; x++ )
-			channel.publish("my-exchange", "my-key", "my first message");
-			channel.publish("my-exchange", "my-key", "another message");
+		for( int x = 0; x < 10; x++ )
+			channel.publish("test-exchange", "test-key", "my first message");
+			//channel.publish("my-exchange", "my-key", "another message");
 
 		// commit the transactions, and set up callbacks that are called when
 		// the transaction was successful or not

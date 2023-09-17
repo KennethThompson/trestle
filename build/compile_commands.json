@@ -1,52 +1,52 @@
 [
 {
   "directory": "/workspaces/trestle/build",
-  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../trestle -I../unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -emit-pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx -x c++-header -o CMakeFiles/tests.dir/cmake_pch.hxx.pch -c /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx.cxx",
+  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I/workspaces/trestle/trestle -I/workspaces/trestle/unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -emit-pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx -x c++-header -o CMakeFiles/tests.dir/cmake_pch.hxx.pch -c /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx.cxx",
   "file": "/workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx.cxx"
 },
 {
   "directory": "/workspaces/trestle/build",
-  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../trestle -I../unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx -o CMakeFiles/tests.dir/trestle/tests.cpp.o -c /workspaces/trestle/trestle/tests.cpp",
+  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I/workspaces/trestle/trestle -I/workspaces/trestle/unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx -o CMakeFiles/tests.dir/trestle/tests.cpp.o -c /workspaces/trestle/trestle/tests.cpp",
   "file": "/workspaces/trestle/trestle/tests.cpp"
 },
 {
   "directory": "/workspaces/trestle/build",
-  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../trestle -I../unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx -o CMakeFiles/tests.dir/trestle/GameObject.cpp.o -c /workspaces/trestle/trestle/GameObject.cpp",
+  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I/workspaces/trestle/trestle -I/workspaces/trestle/unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx -o CMakeFiles/tests.dir/trestle/GameObject.cpp.o -c /workspaces/trestle/trestle/GameObject.cpp",
   "file": "/workspaces/trestle/trestle/GameObject.cpp"
 },
 {
   "directory": "/workspaces/trestle/build",
-  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../trestle -I../unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx -o CMakeFiles/tests.dir/trestle/LoggingService.cpp.o -c /workspaces/trestle/trestle/LoggingService.cpp",
+  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I/workspaces/trestle/trestle -I/workspaces/trestle/unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx -o CMakeFiles/tests.dir/trestle/LoggingService.cpp.o -c /workspaces/trestle/trestle/LoggingService.cpp",
   "file": "/workspaces/trestle/trestle/LoggingService.cpp"
 },
 {
   "directory": "/workspaces/trestle/build",
-  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../trestle -I../unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx -o CMakeFiles/tests.dir/trestle/SettingsDB.cpp.o -c /workspaces/trestle/trestle/SettingsDB.cpp",
+  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I/workspaces/trestle/trestle -I/workspaces/trestle/unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/tests.dir/cmake_pch.hxx -o CMakeFiles/tests.dir/trestle/SettingsDB.cpp.o -c /workspaces/trestle/trestle/SettingsDB.cpp",
   "file": "/workspaces/trestle/trestle/SettingsDB.cpp"
 },
 {
   "directory": "/workspaces/trestle/build",
-  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../trestle -I../unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -emit-pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx -x c++-header -o CMakeFiles/trestle.dir/cmake_pch.hxx.pch -c /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx.cxx",
+  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I/workspaces/trestle/trestle -I/workspaces/trestle/unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -emit-pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx -x c++-header -o CMakeFiles/trestle.dir/cmake_pch.hxx.pch -c /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx.cxx",
   "file": "/workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx.cxx"
 },
 {
   "directory": "/workspaces/trestle/build",
-  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../trestle -I../unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx -o CMakeFiles/trestle.dir/trestle/main.cpp.o -c /workspaces/trestle/trestle/main.cpp",
+  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I/workspaces/trestle/trestle -I/workspaces/trestle/unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx -o CMakeFiles/trestle.dir/trestle/main.cpp.o -c /workspaces/trestle/trestle/main.cpp",
   "file": "/workspaces/trestle/trestle/main.cpp"
 },
 {
   "directory": "/workspaces/trestle/build",
-  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../trestle -I../unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx -o CMakeFiles/trestle.dir/trestle/GameObject.cpp.o -c /workspaces/trestle/trestle/GameObject.cpp",
+  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I/workspaces/trestle/trestle -I/workspaces/trestle/unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx -o CMakeFiles/trestle.dir/trestle/GameObject.cpp.o -c /workspaces/trestle/trestle/GameObject.cpp",
   "file": "/workspaces/trestle/trestle/GameObject.cpp"
 },
 {
   "directory": "/workspaces/trestle/build",
-  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../trestle -I../unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx -o CMakeFiles/trestle.dir/trestle/LoggingService.cpp.o -c /workspaces/trestle/trestle/LoggingService.cpp",
+  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I/workspaces/trestle/trestle -I/workspaces/trestle/unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx -o CMakeFiles/trestle.dir/trestle/LoggingService.cpp.o -c /workspaces/trestle/trestle/LoggingService.cpp",
   "file": "/workspaces/trestle/trestle/LoggingService.cpp"
 },
 {
   "directory": "/workspaces/trestle/build",
-  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I../trestle -I../unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx -o CMakeFiles/trestle.dir/trestle/SettingsDB.cpp.o -c /workspaces/trestle/trestle/SettingsDB.cpp",
+  "command": "/usr/bin/clang++ -DBOOST_ALL_NO_LIB -DJSON_USE_IMPLICIT_CONVERSIONS=1 -I/workspaces/trestle/trestle -I/workspaces/trestle/unqlite -I/sol2/include -I/speedb/include -I/usr/include/lua5.4 -g -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /workspaces/trestle/build/CMakeFiles/trestle.dir/cmake_pch.hxx -o CMakeFiles/trestle.dir/trestle/SettingsDB.cpp.o -c /workspaces/trestle/trestle/SettingsDB.cpp",
   "file": "/workspaces/trestle/trestle/SettingsDB.cpp"
 }
 ]

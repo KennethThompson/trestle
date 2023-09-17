@@ -28,8 +28,31 @@ RUN apt-get update && apt-get upgrade -y \
     && apt-get -y install golang
     #&& apt-get -y install distcc \
     #&& apt-get -y install ccache
+#RUN wget https://go.dev/dl/go1.21.1.linux-amd64.tar.gz \
+#  && rm -rf /usr/local/go \
+#  && rm -rf /usr/bin/go \
+#  && tar -C /usr/local -xzf go1.21.1.linux-amd64.tar.gz \
+#  && export PATH=$PATH:/usr/local/go/bin \
+#  && export GOROOT_BOOTSTRAP=/usr/local/go \
+#  && wget https://go.dev/dl/go1.21.1.src.tar.gz \
+#  && tar -xvzf go1.21.1.src.tar.gz \
+#  && cd go && cd src \
+#  && ./all.bash \
+#  && export GOBIN=/usr/local/go \
+#  && go install -v golang.org/x/tools/gopls@latest \
+#  && export PATH=$PATH:/usr/local/go
 
-    
+  
+  
+
+
+#RUN cd src
+#RUN ./all.bash
+#RUN rm -rf /usr/local/go
+#RUN PATH=$PATH:/workspaces/trestle/go/bin
+#RUN go install -v golang.org/x/tools/gopls@latest
+
+
 RUN LIBUV_VERSION=1.44.2 \
 	&& apt-get update \
 	&& apt-get -y install vim-tiny nano curl wget autoconf automake build-essential libtool \
@@ -72,3 +95,4 @@ RUN git clone https://github.com/catchorg/Catch2.git \
 
 RUN git config --global user.name "Ken Thompson" && git config --global user.email "kenthompson1@gmail.com"
 
+EXPOSE 5555
