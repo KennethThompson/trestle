@@ -15,7 +15,7 @@ import (
 //}
 
 type TelnetSrv struct {
-	bind string
+	Bind string
 }
 
 func (x TelnetSrv) Start() {
@@ -23,8 +23,8 @@ func (x TelnetSrv) Start() {
 	//telnet_launch()
 }
 
-func New(address string) TelnetSrv {
-	e := TelnetSrv{address}
+func New(Address string) TelnetSrv {
+	e := TelnetSrv{Address}
 	return e
 }
 
