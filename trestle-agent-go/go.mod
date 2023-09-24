@@ -1,4 +1,4 @@
-module trestle_agent_go
+module github.com/kenneththompson/trestle/trestle-agent-go
 
 go 1.21
 
