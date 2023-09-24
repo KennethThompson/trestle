@@ -1,4 +1,4 @@
-package trestle_telnet_test
+package trestle_telnet
 
 import (
 	"github.com/reiver/go-oi"
@@ -9,10 +9,10 @@ import (
 	"time"
 )
 
-type TelnetServerInterface interface {
-	Start()
-	Stop()
-}
+//type TelnetServerInterface interface {
+//	Start()
+//	Stop()
+//}
 
 type TelnetServer struct {
 	bind string
@@ -20,7 +20,12 @@ type TelnetServer struct {
 
 func (x TelnetServer) Start() {
 	//fmt.Println(x.bind)
-	telnet_launch()
+	//telnet_launch()
+}
+
+func New(bind string) TelnetServer {
+	e := TelnetServer{bind}
+	return e
 }
 
 func fiveHandler(stdin io.ReadCloser, stdout io.WriteCloser, stderr io.WriteCloser, args ...string) error {
