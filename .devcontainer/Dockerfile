@@ -26,6 +26,17 @@ RUN apt-get update && apt-get upgrade -y \
     && apt-get -y install liblz4-dev \
     && apt-get -y install libzstd-dev \
     && apt-get -y install golang
+
+#RUN export GO111MODULE=on \
+#    && go get golang.org/dl/go1.21.1@latest 
+    #u&& go get golang.org/x/tools/gopls
+    #&& go get github.com/ramya-rao-a/go-outline \
+    #&& go get github.com/cweill/gotests/gotests@v1.6.0 \
+    #&& go get github.com/fatih/gomodifytags@v1.16.0 \
+    #&& go get github.com/josharian/impl@v1.1.0
+    #&& go get github.com/haya14busa/goplay/cmd/goplay@v1.0.0
+
+    
     #&& apt-get -y install distcc \
     #&& apt-get -y install ccache
 #RUN wget https://go.dev/dl/go1.21.1.linux-amd64.tar.gz \

@@ -1,7 +1,7 @@
 // This example declares a durable Exchange, an ephemeral (auto-delete) Queue,
 // binds the Queue to the Exchange with a binding key, and consumes every
 // message published to that Exchange with that routing key.
-package main
+package consumer
 
 import (
 	"flag"
@@ -34,7 +34,7 @@ func init() {
 	flag.Parse()
 }
 
-func main() {
+func mainfunc() {
 	c, err := NewConsumer(*uri, *exchange, *exchangeType, *queue, *bindingKey, *consumerTag)
 	if err != nil {
 		ErrLog.Fatalf("%s", err)

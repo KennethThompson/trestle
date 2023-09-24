@@ -8,7 +8,6 @@ TEST_CASE("Settings Database", "[speedb]") {
     SettingsDB db;
     REQUIRE(db.initialize() == true);
     std::string key("key1");
-
     SECTION( "writing value to database" ) {
         std::string val("value1");
         bool b = db.PutValue(key, val);

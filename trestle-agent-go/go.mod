@@ -1,4 +1,4 @@
-module main
+module trestle_agent_go
 
 go 1.21
 

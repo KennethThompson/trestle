@@ -1,6 +1,7 @@
 package telnet_test
 
 import (
+	"log"
 	"testing"
 
 	"github.com/reiver/go-telnet"
@@ -8,6 +9,7 @@ import (
 
 func TestTelnet(t *testing.T) {
 
+	log.Printf(" [*] Waiting for messages. To exit press CTRL+C")
 	var handler telnet.Handler = telnet.EchoHandler
 
 	err := telnet.ListenAndServe(":5555", handler)
