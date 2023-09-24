@@ -1,4 +1,4 @@
-package telnet
+package telnet_srv
 
 import (
 	"github.com/reiver/go-oi"
@@ -61,7 +61,7 @@ func danceProducer(ctx telnet.Context, name string, args ...string) telsh.Handle
 	return telsh.PromoteHandlerFunc(danceHandler)
 }
 
-func telnet_launch() {
+func Telnet_Launch() {
 
 	shellHandler := telsh.NewShellHandler()
 

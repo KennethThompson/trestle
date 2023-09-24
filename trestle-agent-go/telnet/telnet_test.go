@@ -1,14 +1,15 @@
-package telnet_test
+package telnet_srv_test
 
 import (
 	"log"
 	"testing"
 
 	"github.com/reiver/go-telnet"
+	//tel "github.com/kenneththompson/trestle/trestle-agent-go"
 )
 
 func TestTelnet(t *testing.T) {
-	tel.launch_telnet()
+
 	log.Printf(" [*] Waiting for messages. To exit press CTRL+C")
 	var handler telnet.Handler = telnet.EchoHandler
 
