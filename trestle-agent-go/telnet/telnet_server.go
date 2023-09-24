@@ -14,17 +14,17 @@ import (
 //	Stop()
 //}
 
-type TelnetServer struct {
+type TelnetSrv struct {
 	bind string
 }
 
-func (x TelnetServer) Start() {
+func (x TelnetSrv) Start() {
 	//fmt.Println(x.bind)
 	//telnet_launch()
 }
 
-func New(address string) TelnetServer {
-	e := TelnetServer{address}
+func New(address string) TelnetSrv {
+	e := TelnetSrv{address}
 	return e
 }
 
