@@ -1,4 +1,4 @@
-package telnet_srv
+package trestle_telnet_test
 
 import (
 	"github.com/reiver/go-oi"
@@ -8,6 +8,20 @@ import (
 	"io"
 	"time"
 )
+
+type TelnetServerInterface interface {
+	Start()
+	Stop()
+}
+
+type TelnetServer struct {
+	bind string
+}
+
+func (x TelnetServer) Start() {
+	//fmt.Println(x.bind)
+	telnet_launch()
+}
 
 func fiveHandler(stdin io.ReadCloser, stdout io.WriteCloser, stderr io.WriteCloser, args ...string) error {
 	oi.LongWriteString(stdout, "The number FIVE looks like this: 5\r\n")
@@ -61,7 +75,7 @@ func danceProducer(ctx telnet.Context, name string, args ...string) telsh.Handle
 	return telsh.PromoteHandlerFunc(danceHandler)
 }
 
-func Telnet_Launch() {
+func telnet_launch() {
 
 	shellHandler := telsh.NewShellHandler()
 

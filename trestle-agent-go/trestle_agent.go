@@ -1,24 +1,10 @@
 package trestle_agent_go
 
 import (
-	"fmt"
 	"log"
 
 	amqp "github.com/rabbitmq/amqp091-go"
 )
-
-type TelnetServerInterface interface {
-	Start()
-	Stop()
-}
-
-type TelnetServer struct {
-	bind string
-}
-
-func (x TelnetServer) Start() {
-	fmt.Println(x.bind)
-}
 
 func failOnError(err error, msg string) {
 	if err != nil {
