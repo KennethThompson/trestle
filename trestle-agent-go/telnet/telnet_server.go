@@ -23,8 +23,8 @@ func (x TelnetSrv) Start() {
 	//telnet_launch()
 }
 
-func New(Address string) TelnetSrv {
-	e := TelnetSrv{Address}
+func New(Bind string) TelnetSrv {
+	e := TelnetSrv{Bind}
 	return e
 }
 
