@@ -8,7 +8,7 @@ import (
 
 func TestTelnet(t *testing.T) {
 	//tel.Telnet_Launch()
-	s := tel.TelnetSrv.New("test")
+	s := tel.TelnetSrv.Bind()
 	s.Start()
 	//log.Printf(" [*] Waiting for messages. To exit press CTRL+C")
 	//var handler telnet.Handler = telnet.EchoHandler

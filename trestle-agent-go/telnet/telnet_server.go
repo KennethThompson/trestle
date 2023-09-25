@@ -23,9 +23,14 @@ func (x TelnetSrv) Start() {
 	//telnet_launch()
 }
 
-func New(Bind string) TelnetSrv {
-	e := TelnetSrv{Bind}
-	return e
+func New(Bind string) *TelnetSrv {
+	instance := TelnetSrv{Bind}
+
+	// ... defaults assignment where applicable ...
+
+	// ... values validation ...
+
+	return &instance
 }
 
 func fiveHandler(stdin io.ReadCloser, stdout io.WriteCloser, stderr io.WriteCloser, args ...string) error {
